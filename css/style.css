@@ -22,10 +22,17 @@ body{
      background: rgba(255, 255, 255, 0.95);
      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
      backdrop-filter: blur(10px);
-     background: var(--eco-green-dark);
+     /* background: var(--eco-green-dark); */
+}
+.navbar-custom .navbar-brand{
+    color: var(--eco-green-dark) !important;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 .link-custom{
-    color: white;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 .link-custom:hover {
     color: var(--eco-green-primary);
@@ -176,4 +183,34 @@ body{
     overflow: hidden;
     margin-top: 0;
 
+}
+
+
+.footer-links div{
+    padding: 0;
+    list-style: none;  
+}
+.footer-links div a{
+    padding: 0;
+    list-style: none;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.footer-links div a:hover{
+    color: var(--eco-green-primary);
+    padding-left: 6px;
+}
+.footer-links h5{
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+
+}
+#subscribeBtn{
+    background-color: var(--eco-green-primary);
+    border: none;
 }
