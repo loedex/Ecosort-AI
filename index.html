@@ -1,107 +1,140 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Powered Waste Assistant</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Powered EcoSort Assistant</title>
+  <meta name="description" content="EcoSorter is an AI-powered web application that uses 
+computer vision and deep learning to classify waste 
+materials and guide users on correct disposal methods. "/>
 
-   <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
 
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-      <div class="container">
-        <a
-          href="#"
-          class="navbar-brand fs-3 d-flex align-items-center gap-3 text-white fw-bold"
-        >
-          <i class="bi bi-recycle fs-2"></i>
-          EcoSorter
-        </a>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-        <button
-          class="navbar-toggler border-0 shadow-none"
-          data-bs-toggle="collapse"
-          data-bs-target="#navlinks"
-        >
-          <!-- <span class="navbar-toggler-icon"></span> -->
-          <i class="bi bi-list text-dark fs-1"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navlinks">
-          <ul class="navbar-nav ms-auto align-items-center mt-3 mt-lg-0">
-            <li class="nav-item me-lg-3 mb-lg-0 mb-3">
-              <a href="#" class="nav-link link-custom">How It Works</a>
-            </li>
-            <li class="nav-item mb-lg-0 mb-3 me-lg-3">
-              <a href="#" class="nav-link link-custom">Scanner</a>
-            </li>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
-            <li class="nav-item me-lg-4 mb-3 mb-lg-0">
-              <span
-                class="badge d-flex align-items-center badge-eco py-2 px-3 fs-6"
-              >
-                <i class="bi bi-star-fill text-warning me-2"></i>EcoScore
-                <span class="ms-2 fw-bold fs-6">450</span>
-              </span>
-            </li>
-            <li class="nav-item me-lg-3 mb-0 mb-lg-0">
-              <a href="#" class="nav-link">
-                <img
-                  src="images/image-wm.png"
-                  alt="Avater"
-                  width="42"
-                  height="42"
-                  class="rounded-circle img-fluid"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container position-relative z-1">
-        <div class="row text-lg-start text-center">
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill mb-4 d-inline-flex align-items-center shadow-sm">
-              <i class="bi bi-stars me-2 fs-6"></i>AI Powered EcoSorter
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#10B981" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="EcoSort AI" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a href="#" class="navbar-brand fs-3 d-flex align-items-center gap-3 text-white fw-bold">
+        <i class="bi bi-recycle fs-2"></i>
+        EcoSort Ai
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" data-bs-toggle="collapse" data-bs-target="#navlinks">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i id="newTogg" class="bi bi-list fs-1"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navlinks">
+        <ul class="navbar-nav ms-auto align-items-center mt-3 mt-lg-0">
+
+          <li class="nav-item me-lg-3 mb-lg-0 mb-3">
+            <a href="about.html" class="nav-link link-custom">How It Works</a>
+          </li>
+          <li class="nav-item mb-lg-0 mb-3 me-lg-3">
+            <a href="#" class="nav-link link-custom">Scanner</a>
+          </li>
+
+          <li class="nav-item mb-lg-0 mb-3 me-lg-3">
+            <a href="map.html" class="nav-link link-custom">Find Centers</a>
+          </li>
+
+          <li class="nav-item mb-lg-0 mb-3 me-lg-3">
+            <a href="stats.html" class="nav-link link-custom">
+             
+              My Stats
+            </a>
+          </li>
+
+
+          <li class="nav-item me-lg-4 mb-3 mb-lg-0">
+
+            <!-- Clean EcoScore badge — exactly like screenshot -->
+            <span class="badge d-flex align-items-center
+               badge-eco py-2 px-3 fs-6" id="ecoScoreBadge">
+              <i class="bi bi-award-fill me-2"></i>
+              EcoScore:
+              <span class="ms-2 fw-bold fs-6" id="ecoScoreValue">0</span>
             </span>
-            <h1 class="hero-title">Protect our planet <br /><span>one item</span> at a time</h1>
-            <p class="hero-subtitle">
-              Point your camera at any item to instantly find out how to dispose
-              of it properly and increase your EcoScore. Join the green
-              revolution today!
-            </p>
 
-            <div class="d-flex flex-sm-row flex-column justify-content-lg-start justify-content-center gap-3 ">
-              <a href="#" class=" btn-primary-custom d-flex justify-content-center align-items-center ">
-                <i class="bi bi-camera-fill me-2"></i>Start Scanning</a
-              >
-              <a href="#" class="btn d-flex justify-content-center align-items-center bg-white fw-bold py-3 px-4 rounded-5">
-                <i class="bi bi-play-circle-fill me-2 text-success"></i>See How
-                It Works</a
-              >
-            </div>
+            <!-- Hidden elements — required by app.js, not visible -->
+            <span id="levelBadge" class="d-none"></span>
+            <span id="levelProgressBar" class="d-none"></span>
+            <span id="nextLevelLabel" class="d-none"></span>
+
+          </li>
+
+           <li class="nav-item me-lg-3 mb-0 mb-lg-0">
+        <a href="#" class="nav-link">
+          <img src="images/image-wm.png" alt="Avater" width="42" height="42" class="rounded-circle img-fluid" />
+        </a>
+      </li>
+        
+         </ul>
+
+      </div>
+
+
+
+
+
+     
+
+
+    </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container position-relative z-1">
+      <div class="row text-lg-start text-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <span
+            class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill mb-4 d-inline-flex align-items-center shadow-sm">
+            <i class="bi bi-stars me-2 fs-6"></i>AI Powered EcoSorter
+          </span>
+          <h1 class="hero-title" data-i18n="hero_title">
+            Protect our planet<br /><span>one item</span> at a time
+          </h1>
+          <p class="hero-subtitle">
+            Point your camera at any item to instantly find out how to dispose
+            of it properly and increase your EcoScore. Join the green
+            revolution today!
+          </p>
+
+          <div class="d-flex flex-sm-row flex-column justify-content-lg-start justify-content-center gap-3">
+            <a href="#" class="btn-primary-custom d-flex justify-content-center align-items-center">
+              <i class="bi bi-camera-fill me-2"></i>Start Scanning</a>
+            <a href="#"
+              class="btn d-flex justify-content-center align-items-center bg-white fw-bold py-3 px-4 rounded-5">
+              <i class="bi bi-play-circle-fill me-2 text-success"></i>See How
+              It Works</a>
           </div>
+        </div>
 
-          <div class="col-lg-6 d-none d-lg-block position-relative text-center">
-            <div class="position-relative d-inline-block">
-              <div
-                style="
+        <div class="col-lg-6 d-none d-lg-block position-relative text-center">
+          <div class="position-relative d-inline-block">
+            <div style="
                   width: 450px;
                   height: 450px;
                   background: linear-gradient(135deg, #34d399, #10b981);
@@ -111,266 +144,751 @@
                   top: 0%;
                   left: 0%;
                   z-index: -1;
-                "
-              ></div>
-              <img
-                src="images/Screenshot 2026-02-25 114349 (2).png"
-                alt=""
-                style="
+                "></div>
+            <img src="images/Screenshot 2026-02-25 114349 (2).png" alt="" style="
                   width: 400px;
                   height: 400px;
                   object-fit: cover;
                   border: 10px solid white;
-                "
-                class="hero-img rounded-circle shadow-lg"
-              />
+                " class="hero-img rounded-circle shadow-lg" />
 
-              <!-- First Floating Badge -->
-              <div
-                class="d-flex align-items-center bg-white rounded-4 position-absolute top-0 start-0 p-3 badge translate-middle"
-              >
-                <div class="bg-success rounded-circle p-2 bg-opacity-10 me-3">
-                  <i class="bi bi-recycle text-success fs-3"></i>
-                </div>
-                <div class="text-start">
-                  <div class="fw-bold text-dark fs-6">100% Recycled</div>
-                  <div class="text-muted small">Target Goal</div>
-                </div>
+            <!-- First Floating Badge -->
+            <div
+              class="d-flex align-items-center bg-white rounded-4 position-absolute top-0 start-0 p-3 badge translate-middle">
+              <div class="bg-success rounded-circle p-2 bg-opacity-10 me-3">
+                <i class="bi bi-recycle text-success fs-3"></i>
               </div>
+              <div class="text-start">
+                <div class="fw-bold text-dark fs-6">100% Recycled</div>
+                <div class="text-muted small">Target Goal</div>
+              </div>
+            </div>
 
-              <!-- Second Floating Badge -->
-              <div
-                class="badge bg-white d-flex align-items-center position-absolute bottom-0 end-0 rounded-4 p-3 translate-middle"
-              >
-                <div class="bg-danger bg-opacity-10 rounded-circle p-2 me-3">
-                  <i class="bi bi-lightning-fill text-warning fs-3"></i>
-                </div>
-                <div>
-                  <div class="text-dark fw-bold fs-6">+50 pts</div>
-                  <div class="text-muted small mt-1">Daily Streak</div>
-                </div>
+            <!-- Second Floating Badge -->
+            <div
+              class="badge bg-white d-flex align-items-center position-absolute bottom-0 end-0 rounded-4 p-3 translate-middle">
+              <div class="bg-danger bg-opacity-10 rounded-circle p-2 me-3">
+                <i class="bi bi-lightning-fill text-warning fs-3"></i>
+              </div>
+              <div>
+                <div class="text-dark fw-bold fs-6">+50 pts</div>
+                <div class="text-muted small mt-1">Daily Streak</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
 
-    <!-- Main Content -->
-     <main class="container">
-      <h2 class="section-title mb-5">Ready to Scan? <span class="text-success">Let's Sort</span></h2>
 
-      <div class="row justify-content-center g-5 mb-4">
-        <!-- AI Scanner Column -->
-         <div class="col-12 col-lg-7">
-          <div class="scanner-card h-100 d-flex flex-column p-4 p-md-5 rounded-5">
-            <div class="d-flex justify-content-between align-items-center mb-4 webcam-head">
-              <h3 class="fw-bold h3 text-dark d-flex align-items-center"><i class="bi bi-viewfinder me-3 text-success fs-3"></i>Scanner Window</h3>
-              <span class="badge bg-danger bg-opacity-10 rounded-pill text-danger px-3 py-2">
-                <span class="spinner-grow spinner-grow-sm me-1" role="status"></span>
-                Live Feed
-              </span>
+  <!-- ── Infinite Marquee Strip ──────────────────── -->
+<div class="marquee-section">
+    <div class="marquee-track">
+        <div class="marquee-content" id="marqueeContent">
+
+            <span class="marquee-item">
+                <i class="bi bi-recycle"></i>
+                Only 9% of all plastic ever produced has been recycled
+            </span>
+            
+
+            <span class="marquee-item item-category">
+                <i class="bi bi-recycle"></i>
+                Plastic Classification
+            </span>
+            
+
+            <span class="marquee-item">
+                <i class="bi bi-tree-fill text-success"></i>
+                Recycling 1 tonne of paper saves 17 trees
+            </span>
+            <span class="marquee-dot">✦</span>
+
+            <span class="marquee-item item-category" style="--cat-color:#3B82F6;">
+                <i class="bi bi-file-earmark-text text-white"></i>
+                Paper Sorting
+            </span>
+            <span class="marquee-dot">✦</span>
+
+            <span class="marquee-item">
+                <i class="bi bi-lightning-fill text-white"></i>
+                Recycling an aluminium can saves energy to run a TV for 3 hours
+            </span>
+          
+
+            <span class="marquee-item item-category">
+                <i class="bi bi-gear-fill text-white"></i>
+                Metal Detection
+            </span>
+            
+
+            <span class="marquee-item">
+                <i class="bi bi-droplet-fill text-white"></i>
+                Glass can be recycled infinitely without losing purity
+            </span>
+           
+
+            <span class="marquee-item item-category" >
+                <i class="bi bi-circle text-white"></i>
+                Glass Identification
+            </span>
+            
+
+            <span class="marquee-item">
+                <i class="bi bi-globe-americas text-white"></i>
+                Pakistan generates 49 million tonnes of solid waste annually
+            </span>
+          
+
+            <span class="marquee-item item-category">
+                <i class="bi bi-tree-fill text-white"></i>
+                Organic Composting
+            </span>
+         
+
+            <span class="marquee-item">
+                <i class="bi bi-stars text-warning"></i>
+                EcoSorter achieves 85–88% waste classification accuracy
+            </span>
+           
+
+            <span class="marquee-item">
+                <i class="bi bi-phone-fill text-success"></i>
+                Works offline — install as a real app on your phone
+            </span>
+           
+
+            <span class="marquee-item">
+                <i class="bi bi-camera-fill"></i>
+                Scan any waste item in under 3 seconds
+            </span>
+         
+
+            <span class="marquee-item">
+                <i class="bi bi-wind text-primary"></i>
+                Composting reduces landfill methane emissions by up to 50%
+            </span>
+            
+
+        </div>
+        <!-- Duplicate for seamless infinite loop -->
+        <div class="marquee-content marquee-clone" aria-hidden="true">
+
+            <span class="marquee-item">
+                <i class="bi bi-recycle"></i>
+                Only 9% of all plastic ever produced has been recycled
+            </span>
+           
+
+            <span class="marquee-item item-category" style="--cat-color:#8B5CF6;">
+                <i class="bi bi-recycle"></i>
+                Plastic Classification
+            </span>
+         
+
+            <span class="marquee-item">
+                <i class="bi bi-tree-fill text-success"></i>
+                Recycling 1 tonne of paper saves 17 trees
+            </span>
+            
+
+            <span class="marquee-item item-category" style="--cat-color:#3B82F6;">
+                <i class="bi bi-file-earmark-text"></i>
+                Paper Sorting
+            </span>
+        
+
+            <span class="marquee-item">
+                <i class="bi bi-lightning-fill text-warning"></i>
+                Recycling an aluminium can saves energy to run a TV for 3 hours
+            </span>
+           
+
+            <span class="marquee-item item-category" style="--cat-color:#F59E0B;">
+                <i class="bi bi-gear-fill"></i>
+                Metal Detection
+            </span>
+           
+
+            <span class="marquee-item">
+                <i class="bi bi-droplet-fill text-primary"></i>
+                Glass can be recycled infinitely without losing purity
+            </span>
+      
+
+            <span class="marquee-item item-category" style="--cat-color:#06B6D4;">
+                <i class="bi bi-circle"></i>
+                Glass Identification
+            </span>
+         
+
+            <span class="marquee-item">
+                <i class="bi bi-globe-americas text-success"></i>
+                Pakistan generates 49 million tonnes of solid waste annually
+            </span>
+        
+
+            <span class="marquee-item item-category" style="--cat-color:#10B981;">
+                <i class="bi bi-tree-fill"></i>
+                Organic Composting
+            </span>
+          
+
+            <span class="marquee-item">
+                <i class="bi bi-stars text-warning"></i>
+                EcoSort AI achieves 85–88% waste classification accuracy
+            </span>
+           
+
+            <span class="marquee-item">
+                <i class="bi bi-phone-fill text-success"></i>
+                Works offline — install as a real app on your phone
+            </span>
+         
+
+            <span class="marquee-item">
+                <i class="bi bi-camera-fill"></i>
+                Scan any waste item in under 3 seconds
+            </span>
+           
+
+            <span class="marquee-item">
+                <i class="bi bi-wind text-primary"></i>
+                Composting reduces landfill methane emissions by up to 50%
+            </span>
+        
+
+        </div>
+    </div>
+</div>
+
+
+
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2 class="section-title mb-5">
+      Ready to Scan? <span class="text-success">Let's Sort</span>
+    </h2>
+
+    <div class="row justify-content-center g-5 mb-4 align-items-stretch">
+      <!-- AI Scanner Column -->
+      <div class="col-12 col-lg-7 d-flex">
+        <div class="scanner-card flex-fill d-flex flex-column p-4 p-md-5 rounded-5">
+          <div class="d-flex justify-content-between align-items-center mb-4 webcam-head">
+            <h3 class="fw-bold h3 text-dark d-flex align-items-center">
+              <i class="bi bi-viewfinder me-3 text-success fs-3"></i>Scanner
+              Window
+            </h3>
+            <span class="badge bg-danger bg-opacity-10 rounded-pill text-danger px-3 py-2" data-i18n="live_feed">
+              <span class="spinner-grow spinner-grow-sm me-1" role="status"></span>
+              Live Feed
+            </span>
+          </div>
+
+          <!-- WebCam PlaceHolder -->
+          <!-- Main Display Area: This box holds either the placeholder text or the final image -->
+          <div id="imageContainer"
+            class="webcam-placeholder bg-light mb-3 mt-5 position-relative overflow-hidden rounded border border-2 border-secondary border-opacity-25"
+            style="width: 100%; min-height: 220px; flex: 1;">
+            <!-- Default state: Shows icon and instructions before an image is selected -->
+            <div id="placeholderContent"
+              class="d-flex flex-column align-items-center justify-content-center w-100 h-100 px-3">
+              <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mb-4"
+                style="width: 80px; height: 80px">
+                <i class="bi bi-camera-video text-success fs-1"></i>
+              </div>
+              <span class="text-muted small">No image selected</span>
+              <span class="text-muted px-2 text-center mt-2">Upload from Device OR Use Camera</span>
             </div>
 
-            <!-- WebCam PlaceHolder -->
-             <!-- Main Display Area: This box holds either the placeholder text or the final image -->
-    <div id="imageContainer"
-      class="webcam-placeholder bg-light mb-3 mt-5 position-relative overflow-hidden rounded border border-2 border-secondary border-opacity-25"
-      style="width: 100%; max-width: 600px; aspect-ratio: 4/3;">
-
-      <!-- Default state: Shows icon and instructions before an image is selected -->
-      <div id="placeholderContent"
-        class="d-flex flex-column align-items-center justify-content-center w-100 h-100 px-3">
-        <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mb-4"
-          style="width: 80px; height: 80px;">
-          <i class="bi bi-camera-video text-success fs-1"></i>
-        </div>
-        <span class="text-muted small">No image selected</span>
-        <span class="text-muted px-2 text-center mt-2">Upload from Device OR Use Camera</span>
-      </div>
-
-      <!-- Final state: The <img> tag sits on top of everything but is hidden ('d-none') by default.
+            <!-- Final state: The <img> tag sits on top of everything but is hidden ('d-none') by default.
                    When an image is ready, JS removes 'd-none' and sets the src.
                    object-fit: contain makes sure the image scales without stretching. -->
-      <img id="previewImage" src="" alt="Selected Image" class="d-none position-absolute top-0 start-0 w-100 h-100 p-2"
-        style="object-fit: contain; object-position: center; background-color: #f8f9fa;">
-    </div>
-
-             <div class="d-flex flex-column flex-md-row gap-3 mt-4">
-              <label for="imageUpload" class="btn btn-success rounded-2 flex-fill"><i class="bi bi-upload me-2"></i>Upload</label>
-              <input type="file" id="imageUpload" accept="image/*" class="d-none" >
-
-              <button class="btn btn-outline-success flex-fill" id="cameraBtn">Use Camera</button>
-             </div>
-             <div class="d-flex align-items-center justify-content-center mt-4">
-              <button class="btn btn-primary-custom d-flex justify-content-center align-items-center flex-fill"><i class="bi bi-magic me-2 fs-5"></i>Analyse Item Now</button>
-             </div>
+            <img id="previewImage" src="" alt="Selected Image"
+              class="d-none position-absolute top-0 start-0 w-100 h-100 p-2" style="
+                  object-fit: contain;
+                  object-position: center;
+                  background-color: #f8f9fa;
+                " />
           </div>
-         </div>
 
-         <!--
+          <div class="d-flex flex-column flex-md-row gap-3 mt-4">
+            <label for="imageUpload" class="btn btn-success rounded-2 flex-fill"><i
+                class="bi bi-upload me-2"></i>Upload</label>
+            <input type="file" id="imageUpload" accept="image/*" class="d-none" />
+
+            <button class="btn btn-outline-success flex-fill" id="cameraBtn">
+              Use Camera
+            </button>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <button id="analyseBtn" disabled
+              class="btn btn-primary-custom d-flex justify-content-center align-items-center flex-fill">
+              <i class="bi bi-magic me-2 fs-5"></i>Analyse Item Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--
       Camera Overlay Modal
       This is a full-screen div that sits on top of everything ('z-3', 'position-fixed').
       It is hidden entirely by default using Bootstrap's 'd-none' utility class.
     -->
-  <div id="cameraOverlay"
-    class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark  d-flex flex-column align-items-center justify-content-center">
-    <div class="position-relative w-100 h-100 d-flex flex-column">
+      <div id="cameraOverlay"
+        class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark d-flex flex-column align-items-center justify-content-center">
+        <div class="position-relative w-100 h-100 d-flex flex-column">
+          <!-- The 'X' Close button positioned in the top right -->
+          <button id="closeCamera" class="btn btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3"
+            aria-label="Close"></button>
 
-      <!-- The 'X' Close button positioned in the top right -->
-      <button id="closeCamera" class="btn btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3"
-        aria-label="Close"></button>
+          <!-- Live Camera Feed: the <video> element receives the stream from the device's camera -->
+          <!-- <div
+              class="flex-grow-1 d-flex align-items-center justify-content-center bg-black overflow-hidden relative"
+            >
+              <video
+                id="cameraStream"
+                autoplay
+                playsinline
+                class="w-100 h-100 object-fit-cover"
+              ></video>
+            </div> -->
+          <!-- Live Camera Feed with Scanning Frame -->
+          <div class="flex-grow-1 d-flex align-items-center
+    justify-content-center bg-black overflow-hidden
+    position-relative">
 
-      <!-- Live Camera Feed: the <video> element receives the stream from the device's camera -->
-      <div class="flex-grow-1 d-flex align-items-center justify-content-center bg-black overflow-hidden relative">
-        <video id="cameraStream" autoplay playsinline class="w-100 h-100 object-fit-cover"></video>
+            <!-- Live video feed -->
+            <video id="cameraStream" autoplay playsinline class="w-100 h-100 object-fit-cover"></video>
+
+            <!-- Dark overlay around the scanning frame -->
+            <div class="position-absolute top-0 start-0
+        w-100 h-100 scan-overlay"></div>
+
+            <!-- Scanning frame box -->
+            <div class="position-absolute scan-frame" id="scanFrame">
+
+              <!-- Four corner brackets -->
+              <div class="corner corner-tl"></div>
+              <div class="corner corner-tr"></div>
+              <div class="corner corner-bl"></div>
+              <div class="corner corner-br"></div>
+
+              <!-- Scanning line animation -->
+              <div class="scan-line"></div>
+            </div>
+
+            <!-- Instruction text below frame -->
+            <div class="position-absolute scan-instruction
+        text-white text-center px-3">
+              <i class="bi bi-viewfinder me-2"></i>
+              Position waste item inside the frame
+            </div>
+
+          </div>
+
+          <!-- Bottom capture button area -->
+          <!-- <div class="bg-dark p-3 d-flex justify-content-center">
+              <button
+                id="captureBtn"
+                class="btn btn-success rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 60px; height: 60px"
+              >
+                <i class="bi bi-camera fs-3"></i>
+              </button>
+            </div> -->
+          <!-- Bottom capture button area -->
+          <div class="bg-dark p-4 d-flex flex-column
+    align-items-center justify-content-center gap-3">
+
+            <!-- Capture hint text -->
+            <small class="text-white-50">
+              Tap the button to capture
+            </small>
+
+            <!-- Capture button with pulse ring -->
+            <div class="position-relative d-flex align-items-center
+        justify-content-center">
+
+              <!-- Outer pulse ring -->
+              <div class="capture-ring position-absolute"></div>
+
+              <!-- Main capture button -->
+              <button id="captureBtn" class="btn btn-success rounded-circle d-flex
+            align-items-center justify-content-center
+            position-relative" style="width: 70px; height: 70px; z-index: 2;">
+                <i class="bi bi-camera fs-2"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Invisible canvas used by JavaScript to "draw" the frame from the video when capture is clicked -->
+        <canvas id="cameraCanvas" class="d-none"></canvas>
       </div>
 
-      <!-- Bottom capture button area -->
-      <div class="bg-dark p-3 d-flex justify-content-center">
-        <button id="captureBtn" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center"
-          style="width: 60px; height: 60px;">
-          <i class="bi bi-camera fs-3"></i>
-        </button>
-      </div>
-    </div>
+      <!-- Analysis Result Column -->
+      <div class="col-12 col-lg-5 d-flex">
+        <div class="results-column flex-fill d-flex flex-column p-4 p-md-5 rounded-5">
+          <h3 class="h3 mb-4 fw-bold">
+            <i class="bi bi-clipboard2-data me-3 text-success fs-3"></i>Analysis
+          </h3>
+          <div class="result-image position-relative text-center p-4 mb-5 rounded-4">
+            <div class="position-absolute top-0 end-0 me-2">
+              <i class="bi bi-check-circle-fill text-success fs-4"></i>
+            </div>
 
-    <!-- Invisible canvas used by JavaScript to "draw" the frame from the video when capture is clicked -->
-    <canvas id="cameraCanvas" class="d-none"></canvas>
-  </div>
+            <!-- Shown before any scan -->
+            <div id="resultDefault">
+              <div class="display-3 text-muted mb-3 mt-2">
+                <i class="bi bi-camera"></i>
+              </div>
+              <h3 class="fw-bold h4 text-muted mb-3" data-i18n="no_scan_yet">No Item Scanned Yet</h3>
+              <div
+                class="px-sm-4 px-2 py-2 text-uppercase rounded-pill fw-bold d-flex justify-content-center align-items-center"
+                style="background: rgba(107, 114, 128, 0.15); color: #6b7280">
+                <span>Upload or Capture First</span>
+              </div>
+            </div>
 
+            <!-- Shown while analysing -->
+            <div id="resultLoading" class="d-none py-4">
+              <div class="spinner-border text-success" role="status"></div>
+              <p class="text-muted mt-3 mb-0">Analysing your item...</p>
+            </div>
 
+            <!-- Shown after scan completes -->
+            <div id="resultContent" class="d-none">
+              <div class="display-3 text-success mb-3 mt-2">
+                <i id="resultIcon" class="bi bi-recycle"></i>
+              </div>
+              <h3 id="resultName" class="fw-bold h2 text-dark mb-3">--</h3>
+              <div id="resultTag"
+                class="px-sm-4 px-2 py-2 text-uppercase rounded-pill fw-bold d-flex justify-content-center align-items-center result-tag">
+                <span id="resultTagText">--</span>
+              </div>
+              <!-- <div class="mt-3">
+                  <small class="text-muted">Confidence: </small>
+                  <span id="resultConfidence" class="fw-bold text-success"
+                    >--%</span
+                  >
+                </div> -->
+              <div class="mt-3 px-2">
 
-         <!-- Analysis Result Column -->
-          <div class="col-12 col-lg-5">
-            <div class="results-column d-flex flex-column p-4 p-md-5 rounded-5">
-              <h3 class="h3 mb-4 fw-bold"><i class="bi bi-clipboard2-data me-3 text-success fs-3"></i
-              >Analysis</h3>
-              <div class="result-image position-relative text-center p-4 mb-5 rounded-4">
-                <div class="position-absolute top-0 end-0 me-2">
-                   <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                <!-- Confidence label and percentage -->
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <small class="text-muted fw-500">Confidence</small>
+                  <span id="resultConfidence" class="fw-bold text-success">--%</span>
                 </div>
-                <div class="display-3 text-success mb-3 mt-2">
-                   <i class="bi bi-recycle"></i>
+
+                <!-- Visual progress bar -->
+                <div class="progress rounded-pill" style="height: 10px; background:#E5E7EB;">
+                  <div id="confidenceBar" class="progress-bar rounded-pill" role="progressbar" style="width: 0%; transition: width 0.8s ease;
+                    background: linear-gradient(90deg, #10b981, #047857);" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
+                  </div>
                 </div>
-                <h3 class="fw-bold h2 text-dark mb-3">Plastic Bottle</h3>
-                <div class="px-sm-4 px-2 py-2 text-uppercase rounded-pill fw-bold fs-sm-6 fs-8  d-flex justify-content-center align-items-center result-tag">
-                 <span> Highly Recyclable</span>
+
+                <!-- Confidence label text -->
+                <div class="mt-1 text-end">
+                  <small id="confidenceLabel" class="text-muted fst-italic">
+                    --
+                  </small>
                 </div>
               </div>
-
-
-              <div class="flex-grow-1">
-                <h5 class="d-flex justify-content-start align-items-center fs-5 fw-bold border-bottom pb-3 mb-4"><i class="bi bi-lightbulb-fill text-warning me-2"></i>Smart Disposal Tips</h5>
-                <ul class="list-group list-group-flush gap-4 mt-3">
-
-                  <li class="list-group-item d-flex justify-content-start bg-transparent px-0">
-                    <div class="bg-primary rounded-circle bg-opacity-10 p-3 d-flex align-items-center justify-content-center me-3" style="width: 70px; height: 70px;">
-                      <i class="bi bi-droplet-fill text-primary fs-3"></i>
-                    </div>
-                    <div>
-                      <strong class="d-block mb-1 fs-6">Empty Liquids</strong>
-                      <span class="text-muted">Ensure the container is completely empty and rinsed before recycling.</span>
-                    </div>
-
-                  </li>
-                  <li class="list-group-item d-flex justify-content-start align-items-center bg-transparent px-0">
-                    <div class="bg-danger bg-opacity-10 rounded-circle p-3 d-flex align-items-center justify-content-center me-3" style="width: 70px; height: 70px;"><i class="bi bi-arrows-collapse text-danger fs-3"></i></div>
-                    <div>
-                      <strong class="d-block mb-1 fs-6">Flatten It Down</strong>
-                      <span class="text-muted">Crush the bottle slightly to save important space in the recycling bin.</span>
-                    </div>
-
-                  </li>
-                   <li class="list-group-item d-flex justify-content-start align-items-center bg-transparent px-0">
-                    <div class="bg-success bg-opacity-10 rounded-circle p-3 d-flex align-items-center justify-content-center me-3" style="width: 70px; height: 70px;"> <i class="bi bi-nut-fill text-success fs-3"></i></div>
-                    <div>
-                      <strong class="d-block mb-1 fs-6">Keep the Cap On</strong>
-                      <span class="text-muted">Leave the plastic cap screwed on securely so it isn't lost during sorting.</span>
-                    </div>
-                  </li>
-                </ul>
+              <!-- Caution banner — shown when confidence is 60-74% -->
+              <div id="cautionBanner" class="d-none mt-3 px-3 py-2 rounded-3 text-start" style="
+                    background: rgba(245, 158, 11, 0.1);
+                    border-left: 3px solid #f59e0b;
+                  ">
+                <small class="text-warning fw-bold">
+                  ⚠️ Low confidence result — try a clearer image for better
+                  accuracy
+                </small>
               </div>
             </div>
           </div>
-      </div>
-     </main>
 
+          <!-- Environmental Impact Section -->
+          <div id="impactSection" class="d-none mb-4 p-4 rounded-4"
+            style="background: linear-gradient(135deg, #ecfdf5, #d1fae5)">
+            <h5 class="fw-bold mb-3 text-success d-flex align-items-center">
+              <i class="bi bi-globe-americas me-2"></i>Environmental Impact
+            </h5>
 
+            <!-- Stats Row -->
+            <div class="row g-3 mb-3">
+              <!-- CO2 Saved -->
+              <div class="col-6">
+                <div class="bg-white rounded-3 p-3 text-center shadow-sm">
+                  <div class="text-success fw-bold fs-5 mb-1">
+                    <i class="bi bi-wind me-1"></i>
+                    <span id="impactCo2">--</span>
+                  </div>
+                  <small class="text-muted">CO₂ Saved</small>
+                </div>
+              </div>
 
-<!-- Footer -->
- <footer>
-  <div class="container">
-    <div class="row mb-5 gy-5">
-      <div class="col-lg-4 col-md-12 pe-lg-5">
-        <a href="#" class="text-decoration-none footer-logo d-flex align-items-center">
-          <i class="bi bi-tree-fill me-2 fs-2"></i>EcoSorter
-        </a>
-        <p class="footer-text mt-3">
-          Empowering individuals and communities to sort waste correctly and efficiently using the power of Artificial Intelligence. Together we can shape a greener, cleaner future. 
-        </p>
-        <div class="social-links mt-4">
-          <!-- <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a> -->
-          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-         <a href="#" aria-label="Twitter"
-                ><i class="bi bi-twitter-x"></i
-              ></a>
-          <a href="#" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        </div>
-      </div>
+              <!-- Water Saved -->
+              <div class="col-6">
+                <div class="bg-white rounded-3 p-3 text-center shadow-sm">
+                  <div class="text-primary fw-bold fs-5 mb-1">
+                    <i class="bi bi-droplet-fill me-1"></i>
+                    <span id="impactWater">--</span>
+                  </div>
+                  <small class="text-muted">Water Saved</small>
+                </div>
+              </div>
 
-      <div class="col-lg-2 col-md-4 col-sm-4 col-4">
-        <div class="footer-links">
-          <h5>Platform</h5>
-          <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item bg-transparent border-0">Home</a>
-            <a href="#" class="list-group-item bg-transparent border-0">How It Works</a>
-            <a href="#" class="list-group-item bg-transparent border-0">Scanner Tool</a>
-            <a href="#" class="list-group-item bg-transparent border-0">Leaderboard</a>
-            <a href="#" class="list-group-item bg-transparent border-0">Pricing</a>
+              <!-- Recyclability -->
+              <div class="col-12">
+                <div class="bg-white rounded-3 p-3 text-center shadow-sm">
+                  <div class="fw-bold fs-6 mb-1">
+                    <i class="bi bi-recycle text-success me-1"></i>
+                    Recyclability:
+                    <span id="impactRecyclability" class="text-success ms-1">--</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Eco Fact -->
+            <div class="p-3 rounded-3" style="
+                  background: rgba(16, 185, 129, 0.1);
+                  border-left: 3px solid #10b981;
+                ">
+              <small class="text-success fw-bold"> 🌱 Did You Know? </small><br />
+              <small id="impactFact" class="text-muted fst-italic">--</small>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-2 col-md-4 col-sm-4 col-4">
-        <div class="footer-links">
-          <h5>Resources</h5>
-          <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item bg-transparent border-0">Recycling Guide</a>
-            <a href="#" class="list-group-item bg-transparent border-0">Eco Blog</a>
-            <a href="#" class="list-group-item bg-transparent border-0">FAQ</a>
-            <a href="#" class="list-group-item bg-transparent border-0">Community Hub</a>
-            <a href="#" class="list-group-item bg-transparent border-0">Support</a>
+          <!-- Tips Trigger Button -->
+          <div class="mt-2 pt-3" id="tipsSection">
+            <button id="openTipsBtn" class="tips-trigger-btn d-flex align-items-center gap-2 w-100">
+              <span class="tips-trigger-icon">
+                <i class="bi bi-lightbulb-fill text-warning"></i>
+              </span>
+              <span class="tips-trigger-text">View Smart Disposal Tips</span>
+              <i class="bi bi-arrow-right ms-auto tips-arrow"></i>
+            </button>
           </div>
-        </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="footer-links">
-          <h5>Stay Updated</h5>
-          <p class="text-muted mb-4 mt-3">Subscribe to our newsletter to get the latest eco-tips and platform updates delivered to your inbox.</p>
-          <form action="" class="d-flex shadow-sm overflow-hidden">
-            <input class="form-control border-0 shadow-none px-4 py-3" type="email" placeholder="Your email address" required>
-            <button id="subscribeBtn" class="btn btn-success px-4 fw-bold" type="submit">Subscribe</button>
-          </form>
-        </div>
 
+
+
+
+
+        </div>
       </div>
     </div>
 
-   <div class="copyright flex-column flex-md-row justify-content-between align-items-center">
+    <!-- Scan History Section -->
+    <section class="mt-5 mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4" id="history-head">
+        <h2 class="section-title mb-0">
+          <span>your scan</span> <span class="text-success">History</span>
+        </h2>
+        <button id="clearHistoryBtn" class="btn btn-outline-danger btn-sm rounded-pill px-3 d-none"
+          data-i18n="clear_history">
+          <i class="bi bi-trash me-1"></i>Clear History
+        </button>
+      </div>
 
-   </div> 
+      <!-- Empty state — shown before any scans -->
+      <div id="historyEmpty" class="text-center py-5 rounded-5" style="background: white; border: 2px dashed #d1fae5">
+        <div class="display-4 mb-3">📭</div>
+        <h5 class="fw-bold text-muted">No scans yet!</h5>
+        <p class="text-muted">
+          Start scanning waste items above to build your history.
+        </p>
+      </div>
+
+      <!-- History grid — shown after first scan -->
+      <div id="historyScrollWrapper" class="history-scroll-wrapper d-none">
+        <div id="historyGrid" class="row g-3"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <i class="bi bi-tree-fill footer-bg-icon icon-1"></i>
+    <i class="bi bi-recycle footer-bg-icon icon-2"></i>
+    <div class="container position-relative z-1">
+      <div class="row gy-5 mb-5">
+        <div class="col-lg-4 col-md-12 pe-lg-5">
+          <a href="#" class="footer-logo text-decoration-none">
+            <i class="bi bi-recycle me-2 text-white fs-2"></i>
+            EcoSort AI
+          </a>
+          <p class="footer-text mt-3">
+            Empowering individuals and communities to sort waste correctly and
+            efficiently using the power of Artificial Intelligence. Together
+            we can shape a greener, cleaner future.
+          </p>
+          <div class="social-icons mt-4">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+          <div class="footer-links">
+            <h5>Platform</h5>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#scanner">Scanner Tool</a></li>
+              <li><a href="#">Leaderboard</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+          <div class="footer-links">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#">Recycling Guide</a></li>
+              <li><a href="#">Eco Blog</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Community Hub</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12">
+          <div class="footer-links">
+            <h5>Stay Updated</h5>
+            <p class="text-white-50 mb-3" style="font-size: 0.95rem;">
+              Subscribe to our newsletter to get the latest eco-tips and
+              platform updates delivered to your inbox.
+            </p>
+            <form class="newsletter-form" onsubmit="event.preventDefault()">
+              <input type="email" class="form-control" placeholder="Your email address" required />
+              <button class="btn-subscribe" type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-3 mb-md-0">
+          &copy; 2026 EcoSort AI. All rights reserved.
+        </p>
+        <div class="d-flex gap-4">
+          <a href="#" class="text-decoration-none small">Privacy Policy</a>
+          <a href="#" class="text-decoration-none small">Terms of Service</a>
+          <a href="#" class="text-decoration-none small">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EcoScore Points Popup Toast -->
+  <div id="ecoToast" class="position-fixed bottom-0 end-0 m-4 p-3 rounded-4 shadow-lg d-none" style="
+        background: linear-gradient(135deg, #10b981, #047857);
+        z-index: 9999;
+        min-width: 200px;
+      ">
+    <div class="d-flex align-items-center text-white">
+      <div class="me-3 fs-2">⭐</div>
+      <div>
+        <div class="fw-bold fs-5" id="toastPoints">+15 pts</div>
+        <div class="small opacity-75" id="toastMessage">
+          Great recycling choice!
+        </div>
+      </div>
+    </div>
   </div>
- </footer>
 
 
-    <script src="assets/waste-data.js"></script>
-    <script src="js/camera.js"></script>
-    <script src="js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+
+  <!-- Level Up Celebration Toast -->
+  <div id="levelUpToast" class="position-fixed top-0 start-50 translate-middle-x
+           mt-4 p-4 rounded-4 shadow-lg d-none text-center" style="background: linear-gradient(135deg, #FCD34D, #F59E0B);
+           z-index: 10000; min-width: 260px;">
+    <div class="fs-1 mb-2" id="levelUpEmoji">🌿</div>
+    <div class="fw-bold fs-5 text-dark" id="levelUpTitle">
+      Level Up!
+    </div>
+    <div class="text-dark opacity-75 mt-1" id="levelUpMessage">
+      You are now a Green Learner!
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- ── Smart Disposal Tips Modal ─────────────────── -->
+  <div id="tipsModal" class="tips-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tipsModalTitle">
+    <div class="tips-modal-card">
+      <!-- Header -->
+      <div class="tips-modal-header">
+        <div class="d-flex align-items-center gap-3">
+          <div class="tips-modal-icon-wrap">
+            <i class="bi bi-lightbulb-fill text-warning fs-4"></i>
+          </div>
+          <div>
+            <h4 class="tips-modal-title mb-0" id="tipsModalTitle">Smart Disposal Tips</h4>
+            <small class="tips-modal-subtitle" id="tipsModalItemName">Scan an item to get personalised tips</small>
+          </div>
+        </div>
+        <button id="closeTipsBtn" class="tips-modal-close" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <!-- Body -->
+      <div class="tips-modal-body">
+        <ul id="tipsModalList" class="tips-modal-list"></ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- Hidden elements required by app.js score/counter system -->
+  <span id="ecoScoreValue" class="d-none">0</span>
+  <span id="scanCountValue" class="d-none">0</span>
+
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/service-worker.js')
+          .then(reg => {
+            console.log('✅ Service Worker registered!');
+          })
+          .catch(err => {
+            console.warn('⚠️ SW registration failed:', err);
+          });
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+  <script src="assets/waste-data.js"></script>
+
+
+  <script src="js/camera.js"></script>
+  <script src="js/app.js"></script>
+  <script defer src="js/pwa.js"></script>
+</body>
+
 </html>
