@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Stats — EcoSort AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a href="index.html"
+                class="navbar-brand fs-3 d-flex align-items-center gap-3 text-white fw-bold">
+                <i class="bi bi-recycle fs-2"></i>EcoSorter
+            </a>
+            <button class="navbar-toggler border-0 shadow-none"
+                data-bs-toggle="collapse"
+                data-bs-target="#navlinks"
+                aria-controls="navlinks"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list text-dark fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navlinks">
+                <ul class="navbar-nav ms-auto align-items-center mt-3 mt-lg-0">
+                    <li class="nav-item me-lg-3 mb-lg-0 mb-3">
+                        <a href="index.html" class="nav-link link-custom">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item mb-lg-0 mb-3 me-lg-3">
+                        <a href="index.html#scanner"
+                            class="nav-link link-custom">Scanner</a>
+                    </li>
+                    <li class="nav-item mb-lg-0 mb-3 me-lg-3">
+                        <a href="stats.html"
+                            class="nav-link link-custom text-success fw-bold">
+                            <i class="bi bi-bar-chart-fill me-1"></i>My Stats
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section style="background:linear-gradient(135deg,#ECFDF5 0%,
+        rgba(255,255,255,1) 100%); padding-top:60px; padding-bottom:40px;">
+        <div class="container">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="bg-success bg-opacity-10 rounded-circle
+                    d-flex align-items-center justify-content-center"
+                    style="width:56px; height:56px;">
+                    <i class="bi bi-bar-chart-fill text-success fs-3"></i>
+                </div>
+                <div>
+                    <h1 class="fw-800 mb-0"
+                        style="font-size:2rem; font-weight:800;">
+                        My Recycling Stats
+                    </h1>
+                    <p class="text-muted mb-0">
+                        Your complete EcoSort activity overview
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+
+        <!-- ── Row 1: Summary Cards ── -->
+        <div class="row g-4 mb-5">
+
+            <!-- Total Scans -->
+            <div class="col-6 col-lg-3">
+                <div class="bg-white rounded-4 p-4 shadow-sm text-center
+                    h-100 border border-1"
+                    style="border-color:#E5E7EB !important;">
+                    <div class="fs-1 mb-2"><i class="bi bi-webcam-fill"></i></div>
+                    <div class="fw-bold fs-2 text-dark"
+                        id="statTotalScans">0</div>
+                    <div class="text-muted small">Total Scans</div>
+                </div>
+            </div>
+
+            <!-- Total EcoScore -->
+            <div class="col-6 col-lg-3">
+                <div class="bg-white rounded-4 p-4 shadow-sm text-center
+                    h-100 border border-1"
+                    style="border-color:#E5E7EB !important;">
+                    <div class="fs-1 mb-2"><i class="bi bi-award-fill me-2 text-success"></i></div>
+                    <div class="fw-bold fs-2 text-success"
+                        id="statEcoScore">0</div>
+                    <div class="text-muted small">EcoScore Points</div>
+                </div>
+            </div>
+
+            <!-- Total CO2 Saved -->
+            <div class="col-6 col-lg-3">
+                <div class="bg-white rounded-4 p-4 shadow-sm text-center
+                    h-100 border border-1"
+                    style="border-color:#E5E7EB !important;">
+                    <div class="fs-1 mb-2"><i class="bi bi-clouds-fill text-primary"></i></div>
+                    <div class="fw-bold fs-2 text-primary"
+                        id="statCo2">0</div>
+                    <div class="text-muted small">kg CO₂ Saved</div>
+                </div>
+            </div>
+
+            <!-- Current Level -->
+            <div class="col-6 col-lg-3">
+                <div class="bg-white rounded-4 p-4 shadow-sm text-center
+                    h-100 border border-1"
+                    style="border-color:#E5E7EB !important;">
+                    <div class="fs-1 mb-2" id="statLevelEmoji"><i class="bi bi-person-arms-up"></i></div>
+                    <div class="fw-bold fs-6 text-dark"
+                        id="statLevelName">Eco Beginner</div>
+                    <div class="text-muted small">Current Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Row 2: Category Breakdown + Favourite ── -->
+        <div class="row g-4 mb-5">
+
+            <!-- Category Breakdown -->
+            <div class="col-lg-8">
+                <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm h-100">
+                    <h5 class="fw-bold mb-4 d-flex align-items-center">
+                        <i class="bi bi-pie-chart-fill text-success me-2"></i>
+                        Category Breakdown
+                    </h5>
+                    <div id="categoryBreakdown">
+                        <p class="text-muted text-center py-4">
+                            No scans yet — start scanning to see your breakdown!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favourite Category + Accuracy -->
+            <div class="col-lg-4">
+                <div class="bg-white rounded-4 p-4 shadow-sm h-100">
+
+                    <!-- Favourite Category -->
+                    <h5 class="fw-bold mb-4 d-flex align-items-center">
+                        <i class="bi bi-award me-2 text-success"></i>
+                        Top Category
+                    </h5>
+                    <div id="topCategoryDisplay"
+                        class="text-center py-3 rounded-4 mb-4"
+                        style="background:#F9FAFB;">
+                        <div class="fs-1 mb-2" id="topCategoryEmoji"><i class="bi bi-question-diamond-fill"></i></div>
+                        <div class="fw-bold fs-5" id="topCategoryName">
+                            --
+                        </div>
+                        <div class="text-muted small" id="topCategoryCount">
+                            Scan items to find out!
+                        </div>
+                    </div>
+
+                    <!-- High Confidence Rate -->
+                    <h6 class="fw-bold mb-3 d-flex align-items-center">
+                        <i class="bi bi-bullseye text-success me-2"></i>
+                        High Confidence Rate
+                    </h6>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="progress flex-fill rounded-pill"
+                            style="height:10px; background:#E5E7EB;">
+                            <div id="accuracyBar"
+                                class="progress-bar rounded-pill"
+                                style="width:0%;
+                                       background:linear-gradient(
+                                       90deg,#10b981,#047857);
+                                       transition:width 1s ease;">
+                            </div>
+                        </div>
+                        <span id="accuracyRate"
+                            class="fw-bold text-success">0%</span>
+                    </div>
+                    <small class="text-muted">
+                        Scans with 75%+ confidence
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Row 3: Recent Activity Timeline ── -->
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm">
+                    <h5 class="fw-bold mb-4 d-flex align-items-center">
+                        <i class="bi bi-clock-history text-success me-2"></i>
+                        Recent Activity
+                    </h5>
+                    <div id="recentActivity">
+                        <p class="text-muted text-center py-4">
+                            No recent activity yet!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Reset Button ── -->
+        <div class="text-center mt-5">
+            <button id="resetAllData"
+                class="btn btn-outline-danger rounded-pill px-4">
+                <i class="bi bi-trash me-2"></i>Reset All My Data
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <div class="container pb-5">
+        <p class="text-center text-muted small">
+            <i class="bi bi-shield-check text-success me-1"></i>
+            All data stored locally on your device — never shared!
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/waste-data.js"></script>
+    <script src="js/stats.js"></script>
+</body>
+</html>
