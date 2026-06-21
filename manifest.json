@@ -1,0 +1,54 @@
+{
+    "name": "EcoSort AI — Smart Waste Sorter",
+    "short_name": "EcoSort AI",
+    "description": "AI-powered waste sorting assistant. Scan, identify and dispose waste correctly!",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#F9FAFB",
+    "theme_color": "#10B981",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "icons": [
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["productivity", "utilities", "education"],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Start Scanning",
+            "short_name": "Scan",
+            "description": "Directly open the waste scanner",
+            "url": "/index.html#scanner",
+            "icons": [
+                {
+                    "src": "images/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "My Stats",
+            "short_name": "Stats",
+            "description": "View your recycling statistics",
+            "url": "/stats.html",
+            "icons": [
+                {
+                    "src": "images/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}
